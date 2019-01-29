@@ -80,7 +80,7 @@ public class PopularPostServlet extends HttpServlet {
 			}
 					
 			this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
-		}else response.sendRedirect("/test/login");
+		}else response.sendRedirect("/SocialNetwork/login");
 	}
 
 	/**

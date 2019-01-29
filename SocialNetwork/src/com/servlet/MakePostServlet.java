@@ -58,7 +58,7 @@ public class MakePostServlet extends HttpServlet {
 		HttpSession session = request.getSession(); 
 		User currentUser = (User) session.getAttribute("currentUser");
 		
-		if(currentUser == null) response.sendRedirect("login");
+		if(currentUser == null) response.sendRedirect("/SocialNetwork/login");
 		else
 			this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
 	}

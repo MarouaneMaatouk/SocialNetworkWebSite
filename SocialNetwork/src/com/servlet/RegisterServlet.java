@@ -116,7 +116,7 @@ public class RegisterServlet extends HttpServlet {
 			    		else {
 				          User newUser = new User(email, password, fullName);
 				          userDao.addUser(newUser);
-				          response.sendRedirect("/test/login");
+				          response.sendRedirect("/SocialNetwork/login");
 				          
 				        }
 			      }
