@@ -128,8 +128,9 @@ CREATE TABLE Notifications(
   CREATE PROCEDURE getNotificationsByUserId(IN some_user_id int)
     BEGIN
       SELECT Users.profileImg_url, Users.fullName, Notifications.post_id, Notifications.status
-      FROM Users , Notifications, (SELECT * FROM posts where user_id = 1) as Posts
-      WHERE   Notifications.post_id = Posts.id_post;
+      FROM Users , Notifications, (SELECT * FROM posts where user_id = some_user_id) as Posts
+      WHERE   Notifications.post_id = Posts.id_post
+      AND Notifications.user_id = Users.id;
     END
     /
 
