@@ -6,11 +6,10 @@ Construction d'un site web en restant fidèle au modèle MVC
 
 **Package Beans**
 
-*JavaBeans:*
-         User.java        
-         Post.java        
-         Comment.java     
-         Notification
+- User.java        
+- Post.java        
+- Comment.java     
+- Notification
 
 **Package Dao**
 
@@ -32,24 +31,22 @@ Charger de la connection et des travaux sur la base de donnée
 ## VUES
 
 Pages jsp :
-        header.jsp          [navbar]
-        login.jsp           
-        register.jsp        
-        home.jsp            
-        popular.jsp         
-        make_a_post.jsp     
-        settings.jsp        
+- header.jsp          
+- login.jsp           
+- register.jsp        
+- home.jsp            
+- popular.jsp         
+- make_a_post.jsp     
+- settings.jsp        
 
 ## Servlets
 
-**Package servlets**
-
-        ConnectionServlet controles  (login.jsp)    
-        RegisterServlet       "     (register.jsp)
-        HomePostServlet       "     (home).jsp     
-        PopularPostServlet    "     (popular.jsp)  
-        MakePostServlet       "     (Make_a_post.jsp)
-        SettingsServlet       "     (settings.jsp)  
+- ConnectionServlet controles  (login.jsp)    
+- RegisterServlet       "     (register.jsp)
+- HomePostServlet       "     (home).jsp     
+- PopularPostServlet    "     (popular.jsp)  
+- MakePostServlet       "     (Make_a_post.jsp)
+- SettingsServlet       "     (settings.jsp)  
 
 
 ## Base de donnée
