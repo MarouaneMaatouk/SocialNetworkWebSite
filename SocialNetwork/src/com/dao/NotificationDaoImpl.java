@@ -27,12 +27,13 @@ public class NotificationDaoImpl implements NotificationDao {
 		PreparedStatement prepStm = null;
 		try {
 	    	Connection conn = daoFactory.getConnection();
+	    	conn.setAutoCommit(false);
 	        prepStm = conn.prepareStatement(insertQuery);
 	        prepStm.setInt(1, user_id);
 	        prepStm.setInt(2, post_id);
 	        	
 	        prepStm.executeUpdate();
-	        
+	        conn.commit();
 	        prepStm.close();
 
 		}catch (SQLException e) {

@@ -28,15 +28,15 @@ public class CommentsDaoImpl implements CommentsDao{
 		String insertQuery = "INSERT INTO COMMENTS(content, user_id, post_id, date_publication) VALUES (?,?,?,NOW());";
 		try {
 		    	Connection conn = daoFactory.getConnection();
+		    	conn.setAutoCommit(false);
 		        prepStm = conn.prepareStatement(insertQuery);
 		        prepStm.setString(1,newComment.getContent());
 		        prepStm.setInt(2,newComment.getUser_id());
 		        prepStm.setInt(3,newComment.getPost_id());
 		        
 		        
-		        	
 		        prepStm.executeUpdate();
-		        
+		        conn.commit();
 		        prepStm.close();
 
 		}catch (SQLException e) {

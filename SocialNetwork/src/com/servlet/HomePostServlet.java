@@ -124,7 +124,8 @@ public class HomePostServlet extends HttpServlet {
 		       }
 		      else {
 		    	  postsDao.likePost(Integer.parseInt(upvote_postId));
-		    	  Cookie cookie =new Cookie(upvote_postId, upvote_postId);
+		    	  notificationDao.likeNotification(currentUser.getId(),Integer.parseInt(upvote_postId));
+		    	  Cookie cookie =new Cookie(Integer.toString(currentUser.getId()), upvote_postId);
 		    	  cookie.setMaxAge(60*60*24*30);
 		    	  response.addCookie(cookie);
 		      }

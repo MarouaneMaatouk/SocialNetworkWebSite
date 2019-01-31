@@ -129,13 +129,14 @@
 
     </div>
 
-
 	<script>var arrayOfCookies = [];</script>
 
 	<c:forEach items="${cookie}" var="currentCookie" varStatus = "loop">
+		<c:if test = "${currentCookie.value.name == (sessionScope.currentUser.id).toString()}">
 		<script>
 		arrayOfCookies[${loop.index}] =  ${currentCookie.value.value};
 		</script>
+		</c:if>
 	</c:forEach>    
 
     

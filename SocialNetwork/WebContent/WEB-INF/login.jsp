@@ -43,7 +43,7 @@
 
 
       <div class="card pb-2 mx-auto px-0" style="width:25rem; margin-top: 100px; border:#008080 solid 4px;">
-        <h1 class="card-header text-center"><i class="fab fa-slack"></i><br><small class='hd'>Join us !</small></h1>
+        <h1 class="card-header text-center"><i class="fab fa-slack"></i><br><small class='hd'>Welcome !</small></h1>
         <div class="card-body">
           <form  action = "login" method="post">
             <div class="form-group">

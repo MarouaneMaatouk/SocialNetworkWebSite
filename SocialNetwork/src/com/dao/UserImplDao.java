@@ -78,6 +78,7 @@ class UsersDaoImpl implements UserDao{
 	    String insertQuery = "INSERT INTO USERS(email,password,fullName,profileImg_url) VALUES (?,?,?,?);";
 	    try {
 	    	Connection conn = daoFactory.getConnection();
+	    	conn.setAutoCommit(false);
 	        prepStm = conn.prepareStatement(insertQuery);
 	        prepStm.setString(1,newUser.getEmail());
 	        prepStm.setString(2,newUser.getPassword());
@@ -85,6 +86,7 @@ class UsersDaoImpl implements UserDao{
 	        prepStm.setString(4,newUser.getProfileImg_url());
 
 	        prepStm.executeUpdate();
+	        conn.commit();
 	        prepStm.close();
 
 	    }catch (SQLException e) {
@@ -100,11 +102,13 @@ class UsersDaoImpl implements UserDao{
 	    String insertQuery = "UPDATE  USERS SET password := ? WHERE id = ?;";
 	    try {
 	    	Connection conn = daoFactory.getConnection();
+	    	conn.setAutoCommit(false);
 	        prepStm = conn.prepareStatement(insertQuery);
 	        prepStm.setString(1,newPassword);
 	        prepStm.setInt(2,id_user);
 
 	        prepStm.executeUpdate();
+	        conn.commit();
 	        prepStm.close();
 
 	    }catch (SQLException e) {
@@ -119,11 +123,13 @@ class UsersDaoImpl implements UserDao{
 	    String insertQuery = "UPDATE  USERS SET profileImg_url := ? WHERE id = ?;";
 	    try {
 	    	Connection conn = daoFactory.getConnection();
+	    	conn.setAutoCommit(false);
 	        prepStm = conn.prepareStatement(insertQuery);
 	        prepStm.setString(1,newProfilImg);
 	        prepStm.setInt(2,id_user);
 
 	        prepStm.executeUpdate();
+	        conn.commit();
 	        prepStm.close();
 
 	    }catch (SQLException e) {

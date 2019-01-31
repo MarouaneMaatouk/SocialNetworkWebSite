@@ -10,9 +10,7 @@ public class User {
 	private String email;
 	private String password;
 	private String fullName;
-	private String profileImg_url = "face.png";
-	
-	
+	private String profileImg_url = "face.jpg";
 	
 	
 	

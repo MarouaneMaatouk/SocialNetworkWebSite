@@ -29,6 +29,7 @@ class PostsDaoImpl implements PostsDao{
 	    String insertQuery = "insert into Posts(img_url, description, user_id, date_publication) values(?,?,?,NOW());";
 	    try {
 	    	Connection conn = daoFactory.getConnection();
+	    	conn.setAutoCommit(false);
 	        prepStm = conn.prepareStatement(insertQuery);
 	        prepStm.setString(1,newPost.getPost_img_url());
 	        prepStm.setString(2,newPost.getDescription());
@@ -36,6 +37,7 @@ class PostsDaoImpl implements PostsDao{
 	        
 	        
 	        prepStm.executeUpdate();
+	        conn.commit();
 	        prepStm.close();
 
 	    }catch (SQLException e) {
@@ -51,11 +53,13 @@ class PostsDaoImpl implements PostsDao{
 	    String insertQuery = "UPDATE  Posts SET nbrUpvotes := nbrUpvotes + 1 WHERE id_post = ?;";
 	    try {
 	    	Connection conn = daoFactory.getConnection();
+	    	conn.setAutoCommit(false);
 	        prepStm = conn.prepareStatement(insertQuery);
 	      
 	        prepStm.setString(1, Integer.toString(post_id));
 
 	        prepStm.executeUpdate();
+	        conn.commit();
 	        prepStm.close();
 
 	    }catch (SQLException e) {
@@ -71,11 +75,13 @@ class PostsDaoImpl implements PostsDao{
 	    String insertQuery = "UPDATE  Posts SET nbrUpvotes := nbrUpvotes - 1 WHERE id_post = ?;";
 	    try {
 	    	Connection conn = daoFactory.getConnection();
+	    	conn.setAutoCommit(false);
 	        prepStm = conn.prepareStatement(insertQuery);
 	      
 	        prepStm.setString(1, Integer.toString(post_id));
 
 	        prepStm.executeUpdate();
+	        conn.commit();
 	        prepStm.close();
 
 	    }catch (SQLException e) {
@@ -90,11 +96,13 @@ class PostsDaoImpl implements PostsDao{
 	    String deleteQuery = "DELETE FROM Posts WHERE id_post = ?;";
 	    try {
 	    	Connection conn = daoFactory.getConnection();
+	    	conn.setAutoCommit(false);
 	        prepStm = conn.prepareStatement(deleteQuery);
 	      
 	        prepStm.setString(1, Integer.toString(oldPost_id));
 
 	        prepStm.executeUpdate();
+	        conn.commit();
 	        prepStm.close();
 
 	    }catch (SQLException e) {
