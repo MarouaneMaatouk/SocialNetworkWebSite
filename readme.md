@@ -6,11 +6,10 @@ Construction d'un site web en restant fidèle au modèle MVC
 
 **Package Beans**
 
-*JavaBeans:*
-         User.java        
-         Post.java        
-         Comment.java     
-         Notification
+- User.java        
+- Post.java        
+- Comment.java     
+- Notification
 
 **Package Dao**
 
@@ -32,24 +31,22 @@ Charger de la connection et des travaux sur la base de donnée
 ## VUES
 
 Pages jsp :
-        header.jsp          [navbar]
-        login.jsp           
-        register.jsp        
-        home.jsp            
-        popular.jsp         
-        make_a_post.jsp     
-        settings.jsp        
+- header.jsp          
+- login.jsp           
+- register.jsp        
+- home.jsp            
+- popular.jsp         
+- make_a_post.jsp     
+- settings.jsp        
 
 ## Servlets
 
-**Package servlets**
-
-        ConnectionServlet controles  (login.jsp)    
-        RegisterServlet       "     (register.jsp)
-        HomePostServlet       "     (home).jsp     
-        PopularPostServlet    "     (popular.jsp)  
-        MakePostServlet       "     (Make_a_post.jsp)
-        SettingsServlet       "     (settings.jsp)  
+- ConnectionServlet controles  (login.jsp)    
+- RegisterServlet       "     (register.jsp)
+- HomePostServlet       "     (home).jsp     
+- PopularPostServlet    "     (popular.jsp)  
+- MakePostServlet       "     (Make_a_post.jsp)
+- SettingsServlet       "     (settings.jsp)  
 
 
 ## Base de donnée
@@ -131,8 +128,9 @@ CREATE TABLE Notifications(
   CREATE PROCEDURE getNotificationsByUserId(IN some_user_id int)
     BEGIN
       SELECT Users.profileImg_url, Users.fullName, Notifications.post_id, Notifications.status
-      FROM Users , Notifications, (SELECT * FROM posts where user_id = 1) as Posts
-      WHERE   Notifications.post_id = Posts.id_post;
+      FROM Users , Notifications, (SELECT * FROM posts where user_id = some_user_id) as Posts
+      WHERE   Notifications.post_id = Posts.id_post
+      AND Notifications.user_id = Users.id;
     END
     /
 
